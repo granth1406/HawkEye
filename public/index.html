@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HawkEye</title>
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Terminal Theme -->
+  <link href="terminal-theme.css" rel="stylesheet">
+  
+  <!-- Monospace Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body class="min-h-screen bg-gray-900 text-white">
+  <!-- Navigation -->
+<nav class="fixed w-full bg-gray-900/20 backdrop-blur-md z-50 border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <span class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          HawkEye
+        </span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Home</a>
+  <a href="learning.html" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Learning</a>
+        <a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">About</a>
+  <a href="contact.html" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Contact</a>
+        <button class="login-btn bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-200">
+          Login
+        </button>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button 
+        id="menuToggle"
+        class="md:hidden text-gray-300 hover:text-white"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+    <div class="px-4 py-2 space-y-2">
+      <a href="#" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
+  <a href="learning.html" class="block py-2 text-gray-300 hover:text-cyan-400">Learning</a>
+      <a href="#" class="block py-2 text-gray-300 hover:text-cyan-400">About</a>
+  <a href="contact.html" class="block py-2 text-gray-300 hover:text-cyan-400">Contact</a>
+      <button class="login-btn w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 rounded-lg">
+        Login
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+    <!-- Background Effects -->
+    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5"></div>
+    <div class="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center mb-6">
+          
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+          Stay <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Secure</span> Online
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+          Advanced cybersecurity scanning that protects you from malware, phishing, and online threats with real-time intelligence.
+        </p>
+        
+        <!-- Threat Counter -->
+        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-xl p-6 max-w-md mx-auto mb-12 border border-gray-700">
+          <div id="threatCount" class="text-3xl font-bold text-red-400 mb-2">
+            2,847,293
+          </div>
+          <div class="text-gray-400 mb-3">Threats Blocked Today</div>
+          <div class="flex items-center justify-center text-green-400">
+            
+            <span class="text-sm">Live Protection Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scanning Interface -->
+      <div id="scan" class="terminal-window max-w-4xl mx-auto">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+          </div>
+          <div class="text-sm text-terminal-text flex-1 text-center">hawk@eye:~/scan</div>
+        </div>
+        <div class="terminal-content p-6">
+          <!-- Scan Mode Toggle -->
+          <div class="flex justify-center mb-8">
+            <div class="flex border border-terminal-border rounded">
+              <button
+                id="btnFileMode"
+                class="px-6 py-3 terminal-btn font-semibold transition-all duration-200 flex items-center">
+                Scan File
+              </button>
+              <button
+                id="btnUrlMode"
+                class="px-6 py-3 terminal-btn font-semibold transition-all duration-200 flex items-center">
+                Scan URL
+              </button>
+            </div>
+          </div>
+
+        <!-- File Upload Mode -->
+        <div id="fileMode" class="space-y-6">
+          <div class="terminal-prompt mb-4 text-center">
+            <span class="text-terminal-text">$ ./scan-file --interactive</span>
+          </div>
+          <div class="border border-terminal-border rounded p-6 text-center">
+            <input
+              type="file"
+              id="fileUpload"
+              class="hidden"
+              accept="/"
+              aria-label="Choose file to scan"
+            />
+            <label for="fileUpload" class="cursor-pointer block">
+              <p class="text-terminal-text mb-2 font-semibold terminal-prompt">
+                <span class="text-terminal-green">select</span> <span class="text-terminal-text">file</span> <span class="text-terminal-blue">--path</span> <span class="text-terminal-yellow">"local/system"</span>
+              </p>
+              <p class="text-sm text-terminal-text opacity-75">max_size=256MB; accept_all=true;</p>
+            </label>
+
+            <div id="fileReady" class="hidden mt-6 p-4 border border-terminal-border rounded">
+              <p id="fileName" class="text-terminal-cyan font-semibold mb-3 terminal-prompt"></p>
+              <button id="btnStartFileScan" class="terminal-btn px-6 py-3 mx-auto">
+                execute scan --file
+              </button>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-4 text-sm text-terminal-text opacity-75">
+            <div class="terminal-prompt">
+              [+] Malware Detection
+            </div>
+            <div class="terminal-prompt">
+              [+] Heuristic Analysis
+            </div>
+            <div class="terminal-prompt">
+              [+] Real-time Intel
+            </div>
+          </div>
+        </div>
+
+        <!-- URL Scanner Mode -->
+        <div id="urlMode" class="hidden space-y-6">
+          <div class="terminal-prompt mb-4 text-center">
+            <span class="text-terminal-text">$ ./scan-url --analyze</span>
+          </div>
+          <div class="space-y-4">
+            <div class="terminal-prompt mb-2">URL:</div>
+            <input
+              type="url"
+              id="urlInput"
+              placeholder="https://example.com"
+              class="w-full px-4 py-3 bg-terminal-bg border border-terminal-border text-terminal-text focus:border-terminal-cyan focus:outline-none"
+              aria-label="Enter URL to analyze"
+            />
+            <button 
+              id="btnAnalyzeUrl"
+              class="terminal-btn w-full py-3 mt-4 disabled:opacity-50"
+              disabled>
+              execute scan --url
+            </button>
+          </div>
+          <div class="grid md:grid-cols-3 gap-4 text-sm text-terminal-text opacity-75 mt-6">
+            <div class="terminal-prompt">
+              [+] Phishing Detection
+            </div>
+            <div class="terminal-prompt">
+              [+] Malicious Redirects
+            </div>
+            <div class="terminal-prompt">
+              [+] Domain Intel
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+          Comprehensive <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Protection</span>
+        </h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Advanced security features powered by machine learning, threat intelligence, and real-time analysis.
+        </p>
+      </div>
+
+      <!-- Cards (static; keep same look) -->
+      <div id="featureGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Cards are injected by JS to keep markup minimal -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Browser Extension Section -->
+  <section id="extension" class="py-20 bg-terminal-bg relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-button close"></div>
+              <div class="terminal-button minimize"></div>
+              <div class="terminal-button maximize"></div>
+            </div>
+            <div class="text-sm text-terminal-text flex-1 text-center">hawk@eye:~/extension</div>
+          </div>
+          <div class="terminal-content p-6">
+            <div class="terminal-prompt mb-4">
+              <span class="text-terminal-green">hawk@eye</span>
+              <span class="text-terminal-text">:</span>
+              <span class="text-terminal-blue">~/extension</span>
+              <span class="text-terminal-text">$ info --security-features</span>
+            </div>
+            <div class="mb-6 text-terminal-text">
+              <p class="mb-4">Browser security extension v2.5.0</p>
+              <ul class="space-y-2">
+                <li class="terminal-prompt">[+] Real-time website analysis</li>
+                <li class="terminal-prompt">[+] Automatic download scanning</li>
+                <li class="terminal-prompt">[+] Privacy-focused protection</li>
+              </ul>
+            </div>
+            <div class="terminal-prompt mb-4">
+              <span class="text-terminal-text">$ install --browser</span>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button class="terminal-btn px-6 py-3">
+                install --chrome
+              </button>
+              <button class="terminal-btn px-6 py-3">
+                install --firefox
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-button close"></div>
+              <div class="terminal-button minimize"></div>
+              <div class="terminal-button maximize"></div>
+            </div>
+            <div class="text-sm text-terminal-text flex-1 text-center">hawk@eye:~/alert</div>
+          </div>
+          <div class="terminal-content p-6">
+            <div class="terminal-prompt mb-4">
+              <span class="text-terminal-red">[ALERT]</span> Threat Detected
+            </div>
+            <div class="text-terminal-text mb-4">
+              This website contains malicious content and has been blocked for your safety.
+            </div>
+            <div class="flex space-x-4">
+              <button class="terminal-btn px-4 py-2 text-terminal-red">
+                block --permanent
+              </button>
+              <button class="terminal-btn px-4 py-2">
+                show --details
+              </button>
+            </div>
+            <div class="terminal-cursor mt-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-terminal-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="terminal-window mb-12">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+          </div>
+          <div class="text-sm text-terminal-text flex-1 text-center">hawk@eye:~/services</div>
+        </div>
+        <div class="terminal-content p-6">
+          <div class="terminal-prompt mb-4">
+            <span class="text-terminal-green">hawk@eye</span>
+            <span class="text-terminal-text">:</span>
+            <span class="text-terminal-blue">~/services</span>
+            <span class="text-terminal-text">$ list --services --all</span>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="terminal-card p-4 border border-terminal-border">
+              <div class="terminal-prompt mb-2">
+                <span class="text-terminal-cyan">[Service-01]</span> File Scanning
+              </div>
+              <p class="text-terminal-text mb-4 opacity-75">Upload files to detect malware and unsafe content with fast heuristic checks.</p>
+              <button class="terminal-btn px-4 py-2" onclick="location.href='#fileMode'">
+                run scanner.exe
+              </button>
+            </div>
+
+            <div class="terminal-card p-4 border border-terminal-border">
+              <div class="terminal-prompt mb-2">
+                <span class="text-terminal-purple">[Service-02]</span> URL Analysis
+              </div>
+              <p class="text-terminal-text mb-4 opacity-75">Analyze links for phishing and malicious redirects before visiting.</p>
+              <button class="terminal-btn px-4 py-2" onclick="location.href='#urlMode'">
+                analyze --url
+              </button>
+            </div>
+
+            <div class="terminal-card p-4 border border-terminal-border">
+              <div class="terminal-prompt mb-2">
+                <span class="text-terminal-yellow">[Service-03]</span> Email Check
+              </div>
+              <p class="text-terminal-text mb-4 opacity-75">Inspect email attachments and headers for phishing signals.</p>
+              <button class="terminal-btn px-4 py-2">
+                scan --email
+              </button>
+            </div>
+
+            <div class="terminal-card p-4 border border-terminal-border">
+              <div class="terminal-prompt mb-2">
+                <span class="text-terminal-red">[Service-04]</span> Monitoring
+              </div>
+              <p class="text-terminal-text mb-4 opacity-75">Continuous monitoring of indicators and alerts for threats.</p>
+              <button class="terminal-btn px-4 py-2">
+                monitor --start
+              </button>
+            </div>
+
+            <div class="terminal-card p-4 border border-terminal-border">
+              <div class="terminal-prompt mb-2">
+                <span class="text-terminal-green">[Service-05]</span> Response
+              </div>
+              <p class="text-terminal-text mb-4 opacity-75">Expert-led incident response and recovery assistance.</p>
+              <button class="terminal-btn px-4 py-2">
+                help --urgent
+              </button>
+            </div>
+
+            <div class="terminal-card p-4 border border-terminal-border">
+              <div class="terminal-prompt mb-2">
+                <span class="text-terminal-purple">[Service-06]</span> Dark Web
+              </div>
+              <p class="text-terminal-text mb-4 opacity-75">Monitor for leaked credentials across dark web.</p>
+              <button class="terminal-btn px-4 py-2">
+                scan --darkweb
+              </button>
+            </div>
+          </div>
+          <div class="terminal-cursor mt-4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Indicators -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+          </div>
+          <div class="text-sm text-terminal-text flex-1 text-center">hawk@eye:~/stats</div>
+        </div>
+        <div class="terminal-content p-6">
+          <div class="terminal-prompt mb-4">
+            <span class="text-terminal-green">hawk@eye</span>
+            <span class="text-terminal-text">:</span>
+            <span class="text-terminal-blue">~/stats</span>
+            <span class="text-terminal-text">$ show --metrics --realtime</span>
+          </div>
+          
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="terminal-card p-4 border border-terminal-border">
+              <div class="terminal-prompt">
+                <span class="text-terminal-cyan">[USERS]</span>
+              </div>
+              <div class="text-2xl font-bold text-terminal-cyan mb-1">500K+</div>
+              <div class="text-terminal-text opacity-75">Active Users</div>
+            </div>
+            <div class="terminal-card p-4 border border-terminal-border">
+              <div class="terminal-prompt">
+                <span class="text-terminal-purple">[SCANS]</span>
+              </div>
+              <div class="text-2xl font-bold text-terminal-purple mb-1">10M+</div>
+              <div class="text-terminal-text opacity-75">Files Scanned</div>
+            </div>
+            <div class="terminal-card p-4 border border-terminal-border">
+              <div class="terminal-prompt">
+                <span class="text-terminal-green">[ACCURACY]</span>
+              </div>
+              <div class="text-2xl font-bold text-terminal-green mb-1">99.9%</div>
+              <div class="text-terminal-text opacity-75">Detection Rate</div>
+            </div>
+            <div class="terminal-card p-4 border border-terminal-border">
+              <div class="terminal-prompt">
+                <span class="text-terminal-yellow">[UPTIME]</span>
+              </div>
+              <div class="text-2xl font-bold text-terminal-yellow mb-1">24/7</div>
+              <div class="text-terminal-text opacity-75">Protection</div>
+            </div>
+          </div>
+          <div class="terminal-cursor mt-4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br>
+  <!-- Footer -->
+  <footer class="bg-terminal-bg border-t border-terminal-border py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+          </div>
+          <div class="text-sm text-terminal-text flex-1 text-center">hawk@eye:~/info</div>
+        </div>
+        <div class="terminal-content p-6">
+          <div class="grid md:grid-cols-4 gap-8">
+            <div class="col-span-2">
+              <div class="terminal-prompt mb-4">
+                <span class="text-terminal-green">hawk@eye</span>
+                <span class="text-terminal-text">:</span>
+                <span class="text-terminal-blue">~/info</span>
+                <span class="text-terminal-text">$ cat about.txt</span>
+              </div>
+              <div class="terminal-output mb-6">
+                <p class="text-terminal-text mb-4">Advanced cybersecurity protection that keeps you safe from online threats with real-time intelligence and comprehensive analysis.</p>
+                <button class="terminal-btn px-6 py-3">
+                  start --scan-service
+                </button>
+              </div>
+            </div>
+            
+            <div>
+              <div class="terminal-prompt mb-4">
+                <span class="text-terminal-green">hawk@eye</span>
+                <span class="text-terminal-text">:</span>
+                <span class="text-terminal-blue">~/features</span>
+                <span class="text-terminal-text">$ ls</span>
+              </div>
+              <div class="terminal-output">
+                <ul class="space-y-2">
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./file-scanner</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./url-analyzer</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./email-checker</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./browser-extension</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div>
+              <div class="terminal-prompt mb-4">
+                <span class="text-terminal-green">hawk@eye</span>
+                <span class="text-terminal-text">:</span>
+                <span class="text-terminal-blue">~/resources</span>
+                <span class="text-terminal-text">$ ls</span>
+              </div>
+              <div class="terminal-output">
+                <ul class="space-y-2">
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./learning-zone</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./threat-reports</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./api-docs</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./support</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="border-t border-terminal-border mt-8 pt-6">
+            <div class="terminal-prompt text-center">
+              <span class="text-terminal-text opacity-75"># © 2025 HawkEye. All rights reserved. Protecting the digital world, one scan at a time.</span>
+            </div>
+          </div>
+          <div class="terminal-cursor mt-4"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App JS -->
+  <script src="auth.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

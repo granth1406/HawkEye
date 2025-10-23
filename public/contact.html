@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | HawkEye</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Terminal Theme -->
+    <link href="terminal-theme.css" rel="stylesheet">
+    
+    <!-- Monospace Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1a1a1a',
+              'primary-dark': '#0f0f0f',
+              accent: '#06b6d4',
+              'accent-hover': '#0891b2',
+              'gray-300': '#d1d5db',
+              'gray-500': '#6b7280',
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body class="bg-gray-900 text-white">
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center space-x-3">
+            
+            <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">HawkEye</a>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Home</a>
+            <a href="learning.html" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Learning</a>
+            <a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">About</a>
+            <a href="contact.html" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Contact</a>
+            <button class="login-btn bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-200">Login</button>
+          </div>
+
+          <!-- Mobile Toggle -->
+          <button id="menuToggle" class="md:hidden text-gray-300 hover:text-white" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+        <div class="px-4 py-2 space-y-2">
+          <a href="index.html" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
+          <a href="services.html" class="block py-2 text-gray-300 hover:text-cyan-400">Services</a>
+          <a href="#" class="block py-2 text-gray-300 hover:text-cyan-400">About</a>
+          <a href="contact.html" class="block py-2 text-gray-300 hover:text-cyan-400">Contact</a>
+          <button class="login-btn w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 rounded-lg">Login</button>
+        </div>
+      </div>
+    </nav>
+    <br><br>
+    <main>
+      <!-- Hero Section -->
+      <section class="relative pt-24 pb-20 overflow-hidden">
+        <!-- Background with gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10"></div>
+        
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 overflow-hidden">
+          <div class="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+            Secure Your
+            <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              Digital Future
+            </span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Ready to fortify your cybersecurity defenses? Our experts are here to help protect your business from digital threats.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Content -->
+      <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-gray-800/50 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-gray-700">
+            <!-- Contact Info -->
+            <div class="p-8 lg:p-12 bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
+              <!-- Background decoration -->
+              <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-full blur-2xl"></div>
+              
+              <div class="relative z-10">
+                <h2 class="text-3xl font-bold text-white mb-6">Get In Touch</h2>
+                <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                  Have questions about our cybersecurity solutions, threat assessments, or security training? Our team of experts is ready to help secure your digital infrastructure.
+                </p>
+
+                <div class="space-y-6">
+                  <div class="flex items-start space-x-4 p-4 bg-gray-700/30 rounded-xl border border-gray-600/30 hover:border-cyan-500/30 transition-all duration-300">
+                    <div class="flex-shrink-0">
+                      
+                    </div>
+                  </div>
+
+                  <div class="flex items-start space-x-4 p-4 bg-gray-700/30 rounded-xl border border-gray-600/30 hover:border-cyan-500/30 transition-all duration-300">
+                    <div class="flex-shrink-0">
+                      <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-envelope text-white"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 class="text-white font-semibold text-lg mb-1">Email</h3>
+                      <p class="text-gray-300">security@cyberguard.com</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start space-x-4 p-4 bg-gray-700/30 rounded-xl border border-gray-600/30 hover:border-cyan-500/30 transition-all duration-300">
+                    <div class="flex-shrink-0">
+                      <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-phone text-white"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 class="text-white font-semibold text-lg mb-1">Emergency Hotline</h3>
+                      <p class="text-gray-300">+1 (555) CYBER-911</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-gray-700/20 rounded-xl border border-gray-600/30">
+                  <div class="flex items-center space-x-3 mb-4">
+                    <i class="fas fa-clock text-cyan-400"></i>
+                    <h3 class="text-white font-semibold text-lg">Support Hours</h3>
+                  </div>
+                  <ul class="space-y-2 text-gray-300">
+                    <li class="flex justify-between">
+                      <span>Monday - Friday:</span>
+                      <span class="text-cyan-400">24/7 Emergency Support</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span>Business Hours:</span>
+                      <span class="text-cyan-400">8:00 AM - 8:00 PM EST</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span>Weekend Support:</span>
+                      <span class="text-cyan-400">9:00 AM - 6:00 PM EST</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="mt-8">
+                  <h3 class="text-white font-semibold text-lg mb-4">Follow Our Security Updates</h3>
+                  <div class="flex space-x-4">
+                    <a href="#" class="w-12 h-12 bg-gray-700/50 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 text-cyan-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-gray-700/50 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 text-cyan-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-gray-700/50 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 text-cyan-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="p-8 lg:p-12 bg-gray-800/30">
+              <div class="mb-8 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Start Your Security Assessment</h2>
+                <p class="text-gray-300 text-lg">Fill out the form below and our cybersecurity experts will contact you within 24 hours.</p>
+              </div>
+
+              <form id="contactForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="input-group">
+                    <label for="name" class="block text-gray-300 font-medium mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                      placeholder="Enter your full name"
+                      required
+                    />
+                    <span class="error-message text-red-400 text-sm mt-1 hidden"></span>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="email" class="block text-gray-300 font-medium mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                      placeholder="Enter your email"
+                      required
+                    />
+                    <span class="error-message text-red-400 text-sm mt-1 hidden"></span>
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <label for="phone" class="block text-gray-300 font-medium mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                    placeholder="Enter your phone number"
+                  />
+                  <span class="error-message text-red-400 text-sm mt-1 hidden"></span>
+                </div>
+
+                <div class="input-group">
+                  <label for="interest" class="block text-gray-300 font-medium mb-2">
+                    I'm Interested In *
+                  </label>
+                  <select
+                    id="interest"
+                    name="interest"
+                    class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                    required
+                  >
+                    <option value="">Select a service</option>
+                    <option value="security-audit">Security Audit</option>
+                    <option value="penetration-testing">Penetration Testing</option>
+                    <option value="compliance">Compliance Consulting</option>
+                    <option value="incident-response">Incident Response</option>
+                    <option value="security-training">Security Training</option>
+                    <option value="managed-security">Managed Security Services</option>
+                  </select>
+                  <span class="error-message text-red-400 text-sm mt-1 hidden"></span>
+                </div>
+
+                <div class="input-group">
+                  <label for="message" class="block text-gray-300 font-medium mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 resize-vertical"
+                    placeholder="Tell us about your security concerns or requirements..."
+                    required
+                  ></textarea>
+                  <span class="error-message text-red-400 text-sm mt-1 hidden"></span>
+                </div>
+
+                <div class="pt-4">
+                  <button
+                    type="submit"
+                    class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center space-x-2"
+                  >
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Send Secure Message</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Newsletter Section -->
+      <section class="relative py-20 overflow-hidden">
+        <!-- Background with parallax effect -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+        <div class="absolute inset-0">
+          <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+              Stay Ahead of
+              <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Cyber Threats
+              </span>
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Subscribe to our security intelligence newsletter for the latest threat alerts, 
+              security best practices, and exclusive cybersecurity insights.
+            </p>
+          </div>
+
+          <!-- Benefits grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-shield-alt text-white text-2xl"></i>
+              </div>
+              <h3 class="text-white font-semibold text-lg mb-2">Threat Intelligence</h3>
+              <p class="text-gray-400">Real-time updates on emerging cyber threats and vulnerabilities</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-chart-line text-white text-2xl"></i>
+              </div>
+              <h3 class="text-white font-semibold text-lg mb-2">Industry Insights</h3>
+              <p class="text-gray-400">Expert analysis and trends in cybersecurity landscape</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-users text-white text-2xl"></i>
+              </div>
+              <h3 class="text-white font-semibold text-lg mb-2">Exclusive Access</h3>
+              <p class="text-gray-400">Early access to security tools and training resources</p>
+            </div>
+          </div>
+
+          <!-- Newsletter form -->
+          <div class="max-w-md mx-auto">
+            <form id="newsletterForm" class="relative">
+              <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex-1 relative">
+                  <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                  <input
+                    type="email"
+                    id="newsletterEmail"
+                    placeholder="Enter your email for security updates"
+                    class="w-full pl-12 pr-4 py-4 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  id="newsletterBtn"
+                  class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105 whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+            
+            <p class="text-gray-400 text-sm text-center mt-4">
+              No spam. Unsubscribe anytime. Your privacy is protected with enterprise-grade security.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Company Info -->
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="bg-gradient-to-r from-cyan-500 to-blue-500 p-2 rounded-lg shadow-lg">
+                <i class="fas fa-shield-alt text-white"></i>
+              </div>
+              <span class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                HawkEye
+              </span>
+            </div>
+            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+              Protecting businesses from cyber threats with advanced security solutions, 
+              expert consulting, and 24/7 monitoring services.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3 text-gray-300">
+                <i class="fas fa-map-marker-alt text-cyan-400"></i>
+                <span>500 Tech Plaza, Cyber District, NY 10001</span>
+              </div>
+              <div class="flex items-center space-x-3 text-gray-300">
+                <i class="fas fa-phone text-cyan-400"></i>
+                <span>+1 (555) CYBER-911</span>
+              </div>
+              <div class="flex items-center space-x-3 text-gray-300">
+                <i class="fas fa-envelope text-cyan-400"></i>
+                <span>security@cyberguard.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-white font-semibold text-lg mb-6">Security Services</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Threat Assessment</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Penetration Testing</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Security Training</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Compliance Audit</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Incident Response</a></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div>
+            <h3 class="text-white font-semibold text-lg mb-6">Support</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Security FAQ</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Privacy Policy</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Terms of Service</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Contact Support</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Emergency Response</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2025 <span class="text-cyan-400 font-semibold">CyberGuard</span>. All rights reserved. 
+            Your security is our priority.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4 opacity-0 invisible transition-all duration-300">
+      <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 max-w-md w-full border border-gray-700 shadow-2xl transform transition-all duration-300 translate-y-5">
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-check text-white text-2xl"></i>
+          </div>
+          
+          <h3 class="text-2xl font-bold text-white mb-4">Message Sent Successfully!</h3>
+          <p class="text-gray-300 mb-8 leading-relaxed">
+            Thank you for contacting CyberGuard. Our security experts will review your message and respond within 24 hours.
+          </p>
+          
+          <button
+            id="closeModal"
+            class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+          >
+            Close
+          </button>
+        </div>
+
+        <button
+          id="closeModalX"
+          class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-200"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
