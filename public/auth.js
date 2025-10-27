@@ -1,5 +1,5 @@
-// Auth Modal HTML templates
-function createAuthModal(type) {
+// Expose auth functions to global scope
+window.createAuthModal = function(type) {
     return `
     <div id="authModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
         <div class="terminal-window max-w-md w-full" style="min-width: 320px;">
@@ -56,7 +56,7 @@ function createAuthModal(type) {
 }
 
 // Show modal function
-function showAuthModal(type) {
+window.showAuthModal = function(type) {
     // Remove existing modal if any
     closeAuthModal();
     
@@ -171,6 +171,17 @@ async function handleAuth(e, type) {
 // Add click handlers when document loads
 // Function to update UI for logged-in user
 function updateUIForLoggedInUser(userData) {
+    // Show dashboard section
+    const dashboardSection = document.getElementById('userDashboard');
+    if (dashboardSection) {
+        dashboardSection.classList.remove('hidden');
+        // Update username in dashboard
+        const usernameDisplay = dashboardSection.querySelector('.username-display');
+        if (usernameDisplay) {
+            usernameDisplay.textContent = userData.username;
+        }
+    }
+
     // Update desktop menu
     const desktopMenu = document.querySelector('.md\\:flex.items-center.space-x-8');
     if (desktopMenu) {
@@ -190,15 +201,15 @@ function updateUIForLoggedInUser(userData) {
             </button>
             <div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 bg-gray-800 rounded-xl shadow-xl border border-gray-700 overflow-hidden">
                 <a href="#dashboard" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
-                    <span class="mr-2"></span>
+                    <span class="mr-2">📊</span>
                     Dashboard
                 </a>
                 <a href="#settings" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
-                    <span class="mr-2"></span>
+                    <span class="mr-2">⚙️</span>
                     Settings
                 </a>
                 <button onclick="handleLogout()" class="w-full flex items-center px-4 py-2 text-red-400 hover:bg-gray-700">
-                    <span class="mr-2"></span>
+                    <span class="mr-2">🚪</span>
                     Logout
                 </button>
             </div>
@@ -275,6 +286,11 @@ function updateUIForLoggedInUser(userData) {
 
 // Logout handler
 function handleLogout() {
+    // Hide dashboard
+    const dashboardSection = document.getElementById('userDashboard');
+    if (dashboardSection) {
+        dashboardSection.classList.add('hidden');
+    }
     localStorage.removeItem('user');
     window.location.reload();
 }

@@ -3,7 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CyberGuard — Services</title>
+  <title>HawkEye - Cybersecurity Learning Center</title>
+  <meta name="description" content="Interactive cybersecurity training, tools, and resources to help you become a security expert. Learn about threats and protection." />
+  <meta name="keywords" content="cybersecurity training, security learning, cyber threats, IT security education, online security courses" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="HawkEye - Cybersecurity Learning Center" />
+  <meta property="og:description" content="Master cybersecurity with interactive training, tools, and expert resources." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦅</text></svg>" />
+  
+  <!-- Preconnect to External Resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,15 +27,20 @@
   
   <!-- Monospace Font -->
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="min-h-screen bg-gray-900 text-white">
+<body class="min-h-screen bg-black text-white">
   <!-- Navigation (same format as home) -->
-  <nav class="fixed w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-800">
+  <nav class="fixed w-full bg-gray-900/20 backdrop-blur-md z-50 border-b border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
-          <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">HawkEye</a>
+          <span class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            HawkEye
+          </span>
         </div>
 
         <!-- Desktop Menu -->
@@ -55,88 +74,374 @@
     </div>
   </nav>
 
-  <br><br>
-
-  <!-- Services Section -->
-  <section id="learn" class="py-20 bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <!-- Background Effects -->
+    <div class="absolute inset-0 bg-black"></div>
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-terminal-cyan/5 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-terminal-blue/5 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-terminal-purple/5 rounded-full blur-3xl animate-pulse transform -translate-x-1/2 -translate-y-1/2"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="terminal-window hero-terminal">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+          </div>
+          <div class="text-sm text-terminal-text flex-1 text-center">hawk@eye:~/learning</div>
+        </div>
+        <div class="terminal-content p-8 text-center">
+          <div class="terminal-prompt mb-6">
+            <span class="text-terminal-green">hawk@eye</span>
+            <span class="text-terminal-text">:</span>
+            <span class="text-terminal-blue">~/learning</span>
+            <span class="text-terminal-text">$ show --learning-zone</span>
+          </div>
           
-          Learning Zone
-        </h2>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-          Interactive tools and games to help you become a cybersecurity expert and spot threats before they strike.
-        </p>
+          <h1 class="text-5xl md:text-7xl font-bold text-terminal-text mb-6">
+            Cyber <span class="text-terminal-cyan">Learning</span> Zone
+          </h1>
+          <p class="text-xl md:text-2xl text-terminal-text opacity-75 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Interactive tools and games to help you become a cybersecurity expert and spot threats before they strike.
+          </p>
+          <div class="terminal-cursor"></div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-pink-500/20 hover:shadow-2xl transition-all hover:-translate-y-2 bg-pink-500/5">
-          <div class="text-4xl mb-4">🎯</div>
-          <h3 class="text-xl font-semibold mb-4 text-white">Phishing Simulator</h3>
-          <p class="text-gray-300 mb-6">Test your ability to spot fake emails and websites in our safe environment with progressive difficulty levels.</p>
-          <button class="text-pink-400 font-semibold hover:text-pink-300 transition-colors flex items-center">Start Training</button>
+  <!-- User Dashboard (Only visible when logged in) -->
+  <section id="userLearningDashboard" class="hidden py-24 bg-black relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="terminal-window mb-12">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+          </div>
+          <div class="text-sm text-terminal-text flex-1 text-center">hawk@eye:~/user/progress</div>
+        </div>
+        <div class="terminal-content p-8">
+          <div class="terminal-prompt mb-6">
+            <span class="text-terminal-green">hawk@eye</span>
+            <span class="text-terminal-text">:</span>
+            <span class="text-terminal-blue">~/user/progress</span>
+            <span class="text-terminal-text">$ show --progress --user <span class="text-terminal-yellow username-display">[username]</span></span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <!-- Progress Overview -->
+            <div class="terminal-card p-6">
+              <div class="terminal-prompt mb-4">
+                <span class="text-terminal-cyan">[PROGRESS]</span> Learning Path
+              </div>
+              <div class="mb-4">
+                <div class="text-3xl font-bold text-terminal-cyan">Level 2</div>
+                <div class="text-terminal-text/75">Security Specialist</div>
+              </div>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="text-terminal-text">Course Progress</span>
+                    <span class="text-terminal-cyan">65%</span>
+                  </div>
+                  <div class="h-2 bg-terminal-border rounded-full overflow-hidden">
+                    <div class="h-full w-[65%] bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="text-terminal-text">Skill Points</span>
+                    <span class="text-terminal-cyan">1,250</span>
+                  </div>
+                  <div class="h-2 bg-terminal-border rounded-full overflow-hidden">
+                    <div class="h-full w-[45%] bg-gradient-to-r from-purple-500 to-blue-500"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="terminal-card p-6">
+              <div class="terminal-prompt mb-4">
+                <span class="text-terminal-purple">[ACHIEVEMENTS]</span> Latest Unlocked
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 bg-terminal-purple/20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-shield-alt text-terminal-purple"></i>
+                  </div>
+                  <div>
+                    <div class="text-terminal-purple font-semibold">Phishing Expert</div>
+                    <div class="text-terminal-text/75 text-sm">Completed all phishing detection exercises</div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 bg-terminal-cyan/20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-code text-terminal-cyan"></i>
+                  </div>
+                  <div>
+                    <div class="text-terminal-cyan font-semibold">Code Guardian</div>
+                    <div class="text-terminal-text/75 text-sm">Found 5 security vulnerabilities</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Recommended Steps -->
+          <div class="terminal-card p-6 mb-8">
+            <div class="terminal-prompt mb-4">
+              <span class="text-terminal-green">[NEXT STEPS]</span> Recommended Path
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-4 bg-terminal-bg/30 rounded-lg border border-terminal-border">
+                <div class="flex items-center space-x-4">
+                  <div class="w-10 h-10 bg-terminal-cyan/20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-laptop-code text-terminal-cyan"></i>
+                  </div>
+                  <div>
+                    <div class="text-white font-semibold">Advanced Malware Analysis</div>
+                    <div class="text-terminal-text/75">Next module in your learning path</div>
+                  </div>
+                </div>
+                <button class="terminal-btn px-4 py-2">Start Module</button>
+              </div>
+              <div class="flex items-center justify-between p-4 bg-terminal-bg/30 rounded-lg border border-terminal-border">
+                <div class="flex items-center space-x-4">
+                  <div class="w-10 h-10 bg-terminal-purple/20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-bug text-terminal-purple"></i>
+                  </div>
+                  <div>
+                    <div class="text-white font-semibold">Exploit Development</div>
+                    <div class="text-terminal-text/75">Recommended based on your progress</div>
+                  </div>
+                </div>
+                <button class="terminal-btn px-4 py-2">Preview</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Content Section (Shown to all users) -->
+  <section class="py-24 bg-black relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="terminal-window mb-12">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+          </div>
+          <div class="text-sm text-terminal-text flex-1 text-center">hawk@eye:~/modules</div>
+        </div>
+        <div class="terminal-content p-6">
+          <div class="terminal-prompt mb-4">
+            <span class="text-terminal-green">hawk@eye</span>
+            <span class="text-terminal-text">:</span>
+            <span class="text-terminal-blue">~/modules</span>
+            <span class="text-terminal-text">$ ls -l training/</span>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+        <div class="terminal-window hover:-translate-y-2 transition-all">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-button close"></div>
+              <div class="terminal-button minimize"></div>
+              <div class="terminal-button maximize"></div>
+            </div>
+            <div class="text-sm text-terminal-text flex-1 text-center">phishing-sim.exe</div>
+          </div>
+          <div class="terminal-content p-6">
+            <div class="text-4xl mb-4">🎯</div>
+            <h3 class="text-xl font-semibold mb-4 text-terminal-cyan">Phishing Simulator</h3>
+            <p class="text-terminal-text mb-6">Test your ability to spot fake emails and websites in our safe environment with progressive difficulty levels.</p>
+            <div class="terminal-prompt">
+              <span class="text-terminal-green">$</span>
+              <button class="text-terminal-cyan hover:text-terminal-cyan-bright transition-colors">./start-training.sh</button>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-emerald-500/20 hover:shadow-2xl transition-all hover:-translate-y-2 bg-emerald-500/5">
-          <div class="text-4xl mb-4">🧩</div>
-          <h3 class="text-xl font-semibold mb-4 text-white">Security Quiz</h3>
-          <p class="text-gray-300 mb-6">Challenge yourself with curated quizzes for different roles: end-users, developers, and admins.</p>
-          <button class="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors flex items-center">Take Quiz</button>
+        <div class="terminal-window hover:-translate-y-2 transition-all">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-button close"></div>
+              <div class="terminal-button minimize"></div>
+              <div class="terminal-button maximize"></div>
+            </div>
+            <div class="text-sm text-terminal-text flex-1 text-center">quiz-module.sh</div>
+          </div>
+          <div class="terminal-content p-6">
+            <div class="text-4xl mb-4">🧩</div>
+            <h3 class="text-xl font-semibold mb-4 text-terminal-cyan">Security Quiz</h3>
+            <p class="text-terminal-text mb-6">Challenge yourself with curated quizzes for different roles: end-users, developers, and admins.</p>
+            <div class="terminal-prompt">
+              <span class="text-terminal-green">$</span>
+              <button class="text-terminal-cyan hover:text-terminal-cyan-bright transition-colors">./take-quiz.sh</button>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-indigo-500/20 hover:shadow-2xl transition-all hover:-translate-y-2 bg-indigo-500/5">
-          <div class="text-4xl mb-4">�</div>
-          <h3 class="text-xl font-semibold mb-4 text-white">Threat Library</h3>
-          <p class="text-gray-300 mb-6">Explore real-world examples of malware, scams, and attack vectors with analyst notes and indicators of compromise.</p>
-          <button class="text-indigo-400 font-semibold hover:text-indigo-300 transition-colors flex items-center">Browse Library</button>
+        <div class="terminal-window hover:-translate-y-2 transition-all">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-button close"></div>
+              <div class="terminal-button minimize"></div>
+              <div class="terminal-button maximize"></div>
+            </div>
+            <div class="text-sm text-terminal-text flex-1 text-center">threat-db.sh</div>
+          </div>
+          <div class="terminal-content p-6">
+            <div class="text-4xl mb-4">📚</div>
+            <h3 class="text-xl font-semibold mb-4 text-terminal-cyan">Threat Library</h3>
+            <p class="text-terminal-text mb-6">Explore real-world examples of malware, scams, and attack vectors with analyst notes and indicators of compromise.</p>
+            <div class="terminal-prompt">
+              <span class="text-terminal-green">$</span>
+              <button class="text-terminal-cyan hover:text-terminal-cyan-bright transition-colors">./browse-library.sh</button>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-orange-500/20 hover:shadow-2xl transition-all hover:-translate-y-2 bg-orange-500/5">
-          <div class="text-4xl mb-4">🛠️</div>
-          <h3 class="text-xl font-semibold mb-4 text-white">Malware Analysis</h3>
-          <p class="text-gray-300 mb-6">Hands-on labs that walk you through static and dynamic analysis techniques using safe, sandboxed samples.</p>
-          <button class="text-orange-400 font-semibold hover:text-orange-300 transition-colors flex items-center">Open Labs</button>
+        <div class="terminal-window hover:-translate-y-2 transition-all">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-button close"></div>
+              <div class="terminal-button minimize"></div>
+              <div class="terminal-button maximize"></div>
+            </div>
+            <div class="text-sm text-terminal-text flex-1 text-center">malware-lab.sh</div>
+          </div>
+          <div class="terminal-content p-6">
+            <div class="text-4xl mb-4">🛠️</div>
+            <h3 class="text-xl font-semibold mb-4 text-terminal-cyan">Malware Analysis</h3>
+            <p class="text-terminal-text mb-6">Hands-on labs that walk you through static and dynamic analysis techniques using safe, sandboxed samples.</p>
+            <div class="terminal-prompt">
+              <span class="text-terminal-green">$</span>
+              <button class="text-terminal-cyan hover:text-terminal-cyan-bright transition-colors">./open-labs.sh</button>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-emerald-500/20 hover:shadow-2xl transition-all hover:-translate-y-2 bg-emerald-500/5">
-          <div class="text-4xl mb-4">🔬</div>
-          <h3 class="text-xl font-semibold mb-4 text-white">Reverse Engineering</h3>
-          <p class="text-gray-300 mb-6">Introductory reverse engineering tutorials covering assembly basics, decompilation, and common patterns.</p>
-          <button class="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors flex items-center">View Tutorials</button>
+        <div class="terminal-window hover:-translate-y-2 transition-all">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-button close"></div>
+              <div class="terminal-button minimize"></div>
+              <div class="terminal-button maximize"></div>
+            </div>
+            <div class="text-sm text-terminal-text flex-1 text-center">reverse-eng.sh</div>
+          </div>
+          <div class="terminal-content p-6">
+            <div class="text-4xl mb-4">🔬</div>
+            <h3 class="text-xl font-semibold mb-4 text-terminal-cyan">Reverse Engineering</h3>
+            <p class="text-terminal-text mb-6">Introductory reverse engineering tutorials covering assembly basics, decompilation, and common patterns.</p>
+            <div class="terminal-prompt">
+              <span class="text-terminal-green">$</span>
+              <button class="text-terminal-cyan hover:text-terminal-cyan-bright transition-colors">./view-tutorials.sh</button>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-purple-500/20 hover:shadow-2xl transition-all hover:-translate-y-2 bg-purple-500/5">
-          <div class="text-4xl mb-4">🏁</div>
-          <h3 class="text-xl font-semibold mb-4 text-white">Capture The Flag</h3>
-          <p class="text-gray-300 mb-6">Join beginner-friendly CTF challenges that teach vulnerability discovery and exploitation in a controlled setting.</p>
-          <button class="text-purple-400 font-semibold hover:text-purple-300 transition-colors flex items-center">Join a CTF</button>
+        <div class="terminal-window hover:-translate-y-2 transition-all">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-button close"></div>
+              <div class="terminal-button minimize"></div>
+              <div class="terminal-button maximize"></div>
+            </div>
+            <div class="text-sm text-terminal-text flex-1 text-center">ctf.sh</div>
+          </div>
+          <div class="terminal-content p-6">
+            <div class="text-4xl mb-4">🏁</div>
+            <h3 class="text-xl font-semibold mb-4 text-terminal-cyan">Capture The Flag</h3>
+            <p class="text-terminal-text mb-6">Join beginner-friendly CTF challenges that teach vulnerability discovery and exploitation in a controlled setting.</p>
+            <div class="terminal-prompt">
+              <span class="text-terminal-green">$</span>
+              <button class="text-terminal-cyan hover:text-terminal-cyan-bright transition-colors">./join-ctf.sh</button>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Video + Resources -->
       <div class="mt-12 grid md:grid-cols-2 gap-8 items-start">
-        <div class="bg-gray-800/30 rounded-2xl overflow-hidden border border-gray-700">
-          <div class="aspect-w-16 aspect-h-9">
-            <iframe class="w-full h-64 md:h-80" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Intro to Cybersecurity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-button close"></div>
+              <div class="terminal-button minimize"></div>
+              <div class="terminal-button maximize"></div>
+            </div>
+            <div class="text-sm text-terminal-text flex-1 text-center">video-player.sh</div>
           </div>
-          <div class="p-6">
-            <h4 class="text-xl font-semibold text-white mb-2">Intro to Cybersecurity (Video)</h4>
-            <p class="text-gray-300 mb-4">A short primer covering the core principles and why security matters for individuals and organizations.</p>
-            <a href="#" class="text-cyan-400 hover:underline">Watch on YouTube</a>
+          <div class="terminal-content p-0">
+            <div class="aspect-w-16 aspect-h-9">
+              <iframe class="w-full h-64 md:h-80" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Intro to Cybersecurity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="p-6">
+              <div class="terminal-prompt mb-4">
+                <span class="text-terminal-green">hawk@eye</span>
+                <span class="text-terminal-text">:</span>
+                <span class="text-terminal-blue">~/video</span>
+                <span class="text-terminal-text">$ cat video-info.txt</span>
+              </div>
+              <h4 class="text-xl font-semibold text-terminal-cyan mb-2">Intro to Cybersecurity (Video)</h4>
+              <p class="text-terminal-text mb-4">A short primer covering the core principles and why security matters for individuals and organizations.</p>
+              <div class="terminal-prompt">
+                <span class="text-terminal-green">$</span>
+                <a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">xdg-open youtube-link</a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="bg-gray-800/30 p-6 rounded-2xl border border-gray-700">
-          <h4 class="text-xl font-semibold text-white mb-4">Learning Resources</h4>
-          <ul class="space-y-3 text-gray-300">
-            <li><a href="#" class="text-cyan-300 hover:underline">Cheat Sheet: Identifying Phishing</a></li>
-            <li><a href="#" class="text-cyan-300 hover:underline">Guide: Secure Configuration Checklist</a></li>
-            <li><a href="#" class="text-cyan-300 hover:underline">Playbook: Incident Response Basics</a></li>
-            <li><a href="#" class="text-cyan-300 hover:underline">Download: Windows & Linux Hardening Templates</a></li>
-          </ul>
-          <div class="mt-6">
-            <a href="contact.html" class="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-2 rounded-lg">Request Training</a>
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-button close"></div>
+              <div class="terminal-button minimize"></div>
+              <div class="terminal-button maximize"></div>
+            </div>
+            <div class="text-sm text-terminal-text flex-1 text-center">resources.sh</div>
+          </div>
+          <div class="terminal-content p-6">
+            <div class="terminal-prompt mb-4">
+              <span class="text-terminal-green">hawk@eye</span>
+              <span class="text-terminal-text">:</span>
+              <span class="text-terminal-blue">~/resources</span>
+              <span class="text-terminal-text">$ ls -l docs/</span>
+            </div>
+            <ul class="space-y-3 text-terminal-text">
+              <li class="terminal-prompt">
+                <span class="text-terminal-blue">-rw-r--r--</span>
+                <a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright ml-2">phishing-cheatsheet.md</a>
+              </li>
+              <li class="terminal-prompt">
+                <span class="text-terminal-blue">-rw-r--r--</span>
+                <a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright ml-2">secure-config-checklist.md</a>
+              </li>
+              <li class="terminal-prompt">
+                <span class="text-terminal-blue">-rw-r--r--</span>
+                <a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright ml-2">incident-response.md</a>
+              </li>
+              <li class="terminal-prompt">
+                <span class="text-terminal-blue">-rw-r--r--</span>
+                <a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright ml-2">hardening-templates.zip</a>
+              </li>
+            </ul>
+            <div class="mt-6">
+              <div class="terminal-prompt">
+                <span class="text-terminal-green">$</span>
+                <a href="contact.html" class="text-terminal-cyan hover:text-terminal-cyan-bright">./request-training.sh</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -149,14 +454,131 @@
     </div>
   </main>
 
-  <!-- Footer (same as home) -->
-  <footer class="bg-gray-900 border-t border-gray-800 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-      <p>&copy; 2025 HawkEye. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="bg-black border-t border-terminal-border py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+          </div>
+          <div class="text-sm text-terminal-text flex-1 text-center">hawk@eye:~/info</div>
+        </div>
+        <div class="terminal-content p-6">
+          <div class="grid md:grid-cols-4 gap-8">
+            <div class="col-span-2">
+              <div class="terminal-prompt mb-4">
+                <span class="text-terminal-green">hawk@eye</span>
+                <span class="text-terminal-text">:</span>
+                <span class="text-terminal-blue">~/info</span>
+                <span class="text-terminal-text">$ cat about.txt</span>
+              </div>
+              <div class="terminal-output mb-6">
+                <p class="text-terminal-text mb-4">Comprehensive cybersecurity learning platform to help you master the skills needed to protect against digital threats.</p>
+                <button class="terminal-btn px-6 py-3">
+                  start --training
+                </button>
+              </div>
+            </div>
+            
+            <div>
+              <div class="terminal-prompt mb-4">
+                <span class="text-terminal-green">hawk@eye</span>
+                <span class="text-terminal-text">:</span>
+                <span class="text-terminal-blue">~/courses</span>
+                <span class="text-terminal-text">$ ls</span>
+              </div>
+              <div class="terminal-output">
+                <ul class="space-y-2">
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./beginner-track</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./intermediate</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./advanced</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./certification</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div>
+              <div class="terminal-prompt mb-4">
+                <span class="text-terminal-green">hawk@eye</span>
+                <span class="text-terminal-text">:</span>
+                <span class="text-terminal-blue">~/help</span>
+                <span class="text-terminal-text">$ ls</span>
+              </div>
+              <div class="terminal-output">
+                <ul class="space-y-2">
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./faq</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./support</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./resources</a></li>
+                  <li><a href="#" class="text-terminal-cyan hover:text-terminal-cyan-bright">./contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="border-t border-terminal-border mt-8 pt-6">
+            <div class="terminal-prompt text-center">
+              <span class="text-terminal-text opacity-75"># © 2025 HawkEye. All rights reserved. Training the next generation of cybersecurity experts.</span>
+            </div>
+          </div>
+          <div class="terminal-cursor mt-4"></div>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <script src="loading.js"></script>
   <script src="auth.js"></script>
   <script src="index.js"></script>
+  <script>
+    // Initialize auth module
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check for logged in user
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        const user = JSON.parse(userData);
+        updateUIForLoggedInUser(user);
+        
+        // Show user-specific learning dashboard
+        document.getElementById('userLearningDashboard').classList.remove('hidden');
+        
+        // Update username displays
+        document.querySelectorAll('.username-display').forEach(el => {
+          el.textContent = user.username || user.email;
+        });
+
+        // Simulate loading progress data
+        const progressBars = document.querySelectorAll('.terminal-card .h-2 div');
+        progressBars.forEach(bar => {
+          setTimeout(() => {
+            bar.style.width = bar.parentElement.querySelector('div').style.width;
+          }, 500);
+        });
+      }
+
+      // Initialize login buttons
+      const loginButtons = document.querySelectorAll('.login-btn');
+      loginButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (typeof window.showAuthModal === 'function') {
+            window.showAuthModal('login');
+          } else {
+            console.error('Auth module not loaded properly');
+          }
+        });
+      });
+
+    // Handle mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
 </body>
 </html>

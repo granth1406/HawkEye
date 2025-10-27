@@ -11,21 +11,63 @@
     --terminal-border: #414868;
     --terminal-prompt: #73daca;
     --terminal-cursor: #c0caf5;
+
+    /* Bright variants for highlights */
+    --terminal-green-bright: #c2e6a8;
+    --terminal-blue-bright: #9dc2f9;
+    --terminal-red-bright: #f9a3b3;
+    --terminal-cyan-bright: #a3e4ff;
+    --terminal-purple-bright: #d4c0f9;
+    --terminal-yellow-bright: #ffd699;
+    
+    /* Glow effects */
+    --terminal-glow-green: 0 0 15px rgba(158, 206, 106, 0.3);
+    --terminal-glow-blue: 0 0 15px rgba(122, 162, 247, 0.3);
+    --terminal-glow-cyan: 0 0 15px rgba(125, 207, 255, 0.3);
 }
 
 /* Global Terminal Styles */
 body {
-    background-color: var(--terminal-bg) !important;
+    background-color: #000000 !important;
     color: var(--terminal-text) !important;
     font-family: 'Fira Code', 'Cascadia Code', 'Source Code Pro', monospace !important;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Terminal Window Effect */
 .terminal-window {
-    background-color: rgba(26, 27, 38, 0.95);
-    border: 1px solid var(--terminal-border);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    background-color: rgba(26, 27, 38, 0.9);
+    border: 1px solid rgba(65, 72, 104, 0.4);
+    border-radius: 16px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 32px rgba(125, 207, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeIn 0.3s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+}
+
+.terminal-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(125, 207, 255, 0.2),
+        transparent
+    );
+}
+
+.terminal-window:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(125, 207, 255, 0.2);
 }
 
 /* Terminal Header */
@@ -57,34 +99,93 @@ body {
 /* Terminal Content */
 .terminal-content {
     padding: 16px;
+    animation: fadeIn 0.3s ease;
 }
 
 /* Terminal Prompt Effect */
+.terminal-prompt {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    animation: slideIn 0.3s ease;
+}
+
 .terminal-prompt::before {
     content: '> ';
     color: var(--terminal-prompt);
+    margin-right: 8px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-10px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
 }
 
 /* Input Fields */
 input, textarea, select {
-    background-color: rgba(65, 72, 104, 0.3) !important;
-    border: 1px solid var(--terminal-border) !important;
+    background-color: rgba(65, 72, 104, 0.2) !important;
+    border: 1px solid rgba(125, 207, 255, 0.2) !important;
     color: var(--terminal-text) !important;
     font-family: 'Fira Code', monospace !important;
+    font-size: 0.95rem !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    width: 100% !important;
+    margin-bottom: 1rem !important;
 }
 
 input:focus, textarea:focus, select:focus {
     border-color: var(--terminal-cyan) !important;
-    box-shadow: 0 0 0 2px rgba(125, 207, 255, 0.1) !important;
+    box-shadow: 
+        0 0 0 2px rgba(125, 207, 255, 0.1),
+        0 0 20px rgba(125, 207, 255, 0.1) !important;
+    outline: none !important;
+    background-color: rgba(65, 72, 104, 0.3) !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(169, 177, 214, 0.5) !important;
 }
 
 /* Buttons */
 .terminal-btn {
-    background-color: rgba(65, 72, 104, 0.5) !important;
-    border: 1px solid var(--terminal-border) !important;
-    color: var(--terminal-cyan) !important;
+    background: linear-gradient(
+        165deg,
+        rgba(125, 207, 255, 0.2),
+        rgba(65, 72, 104, 0.3)
+    ) !important;
+    border: 1px solid rgba(125, 207, 255, 0.2) !important;
+    color: var(--terminal-text) !important;
     font-family: 'Fira Code', monospace !important;
-    transition: all 0.2s ease !important;
+    font-size: 0.95rem !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    min-height: 44px !important;
+    letter-spacing: 0.5px !important;
 }
 
 .terminal-btn:hover {
@@ -105,27 +206,153 @@ a:hover {
 
 /* Navigation */
 nav {
-    background-color: rgba(26, 27, 38, 0.95) !important;
-    border-bottom: 1px solid var(--terminal-border) !important;
+    background-color: rgba(26, 27, 38, 0.8) !important;
+    border-bottom: 1px solid rgba(125, 207, 255, 0.1) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+nav a {
+    position: relative !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+nav a:hover {
+    background-color: rgba(125, 207, 255, 0.1) !important;
+    color: var(--terminal-cyan-bright) !important;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        var(--terminal-cyan),
+        var(--terminal-blue)
+    );
+    transition: width 0.3s ease;
+}
+
+nav a:hover::before {
+    width: 100%;
 }
 
 /* Cards and Sections */
 .terminal-card {
-    background-color: rgba(65, 72, 104, 0.2) !important;
-    border: 1px solid var(--terminal-border) !important;
-    border-radius: 4px;
+    background: linear-gradient(
+        165deg,
+        rgba(65, 72, 104, 0.2),
+        rgba(26, 27, 38, 0.3)
+    ) !important;
+    border: 1px solid rgba(125, 207, 255, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.terminal-card:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+    border-color: rgba(125, 207, 255, 0.3) !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        0 0 16px rgba(125, 207, 255, 0.1) !important;
+}
+
+.terminal-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(125, 207, 255, 0.05),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.terminal-card:hover::after {
+    left: 100%;
 }
 
 /* Terminal Text Effects */
 .terminal-text {
     font-family: 'Fira Code', monospace !important;
     color: var(--terminal-text) !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.3px !important;
 }
 
-.terminal-success { color: var(--terminal-green) !important; }
-.terminal-error { color: var(--terminal-red) !important; }
-.terminal-warning { color: var(--terminal-yellow) !important; }
-.terminal-info { color: var(--terminal-blue) !important; }
+.terminal-success { 
+    color: var(--terminal-green) !important;
+    text-shadow: 0 0 10px rgba(158, 206, 106, 0.3) !important;
+    position: relative !important;
+}
+
+.terminal-error { 
+    color: var(--terminal-red) !important;
+    text-shadow: 0 0 10px rgba(247, 118, 142, 0.3) !important;
+    position: relative !important;
+}
+
+.terminal-warning { 
+    color: var(--terminal-yellow) !important;
+    text-shadow: 0 0 10px rgba(224, 175, 104, 0.3) !important;
+    position: relative !important;
+}
+
+.terminal-info { 
+    color: var(--terminal-blue) !important;
+    text-shadow: 0 0 10px rgba(122, 162, 247, 0.3) !important;
+    position: relative !important;
+}
+
+[data-tooltip] {
+    position: relative !important;
+    cursor: help !important;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute !important;
+    bottom: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 8px 12px !important;
+    background: rgba(26, 27, 38, 0.95) !important;
+    color: var(--terminal-text) !important;
+    border-radius: 6px !important;
+    font-size: 0.875rem !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(125, 207, 255, 0.2) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+    z-index: 1000 !important;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(-8px) !important;
+}
 
 /* Blinking Cursor Effect */
 .terminal-cursor::after {
@@ -191,16 +418,50 @@ pre, code {
     font-family: 'Fira Code', monospace !important;
 }
 
-/* Progress Bar */
+/* Terminal Progress Bar */
 .terminal-progress {
-    background-color: var(--terminal-border);
-    border-radius: 2px;
+    background-color: rgba(65, 72, 104, 0.2);
+    border-radius: 4px;
     height: 4px;
+    overflow: hidden;
+    position: relative;
+    margin: 8px 0;
 }
 
 .terminal-progress-bar {
-    background-color: var(--terminal-cyan);
+    background: linear-gradient(90deg, 
+        var(--terminal-red), 
+        var(--terminal-purple)
+    );
     height: 100%;
-    border-radius: 2px;
+    border-radius: 4px;
     transition: width 0.3s ease;
+    position: relative;
+    animation: progressPulse 2s infinite;
+}
+
+.terminal-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: progressGlow 2s linear infinite;
+}
+
+@keyframes progressPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes progressGlow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
