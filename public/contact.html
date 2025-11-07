@@ -12,9 +12,6 @@
     <meta property="og:description" content="Connect with cybersecurity experts who can help protect your digital assets." />
     <meta property="og:type" content="website" />
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦅</text></svg>" />
-    
     <!-- Preconnect to External Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,48 +30,46 @@
   </head>
   <body class="bg-black text-white">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-gray-900/10 backdrop-blur-xl z-50 border-b border-gray-800/50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-          <!-- Logo -->
-          <div class="flex items-center space-x-3">
-            <span class="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300">
-              HawkEye
-            </span>
-          </div>
-
-          <!-- Desktop Menu -->
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-cyan-400 after:to-blue-400 after:transition-all after:duration-300">Home</a>
-            <a href="learning.html" class="text-gray-300 hover:text-cyan-400 transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-cyan-400 after:to-blue-400 after:transition-all after:duration-300">Learning</a>
-            <a href="#" class="text-gray-300 hover:text-cyan-400 transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-cyan-400 after:to-blue-400 after:transition-all after:duration-300">About</a>
-            <a href="contact.html" class="text-gray-300 hover:text-cyan-400 transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-cyan-400 after:to-blue-400 after:transition-all after:duration-300">Contact</a>
-            <button class="login-btn bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white px-8 py-2.5 rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105 font-medium">
-              Login
-            </button>
-          </div>
-
-          <!-- Mobile Toggle -->
-          <button id="menuToggle" class="md:hidden text-gray-300 hover:text-white" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
-            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+    <nav class="fixed w-full bg-gray-900/20 backdrop-blur-md z-50 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <span class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            HawkEye
+          </span>
         </div>
-      </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
-        <div class="px-4 py-2 space-y-2">
-          <a href="index.html" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
-          <a href="services.html" class="block py-2 text-gray-300 hover:text-cyan-400">Services</a>
-          <a href="#" class="block py-2 text-gray-300 hover:text-cyan-400">About</a>
-          <a href="contact.html" class="block py-2 text-gray-300 hover:text-cyan-400">Contact</a>
-          <button class="login-btn w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 rounded-lg">Login</button>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Home</a>
+          <a href="learning.html" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Learning</a>
+          <a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">About</a>
+          <a href="contact.html" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Contact</a>
+          <button class="login-btn bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-200">Login</button>
         </div>
+
+        <!-- Mobile Toggle -->
+        <button id="menuToggle" class="md:hidden text-gray-300 hover:text-white" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+          <!-- Simple SVG hamburger icon (no Lucide dependency) -->
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
-    </nav>
-    <br><br>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+      <div class="px-4 py-2 space-y-2">
+        <a href="index.html" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
+        <a href="learning.html" class="block py-2 text-gray-300 hover:text-cyan-400">Learning</a>
+        <a href="#" class="block py-2 text-gray-300 hover:text-cyan-400">About</a>
+  <a href="contact.html" class="block py-2 text-gray-300 hover:text-cyan-400">Contact</a>
+        <button class="login-btn w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 rounded-lg">Login</button>
+      </div>
+    </div>
+  </nav>
     <main>
       <!-- Hero Section -->
       <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
@@ -751,7 +746,7 @@
             }
           });
         });
-
+    
         // Animate progress bars
         const progressBars = document.querySelectorAll('.terminal-card .h-2 div');
         progressBars.forEach(bar => {
@@ -784,6 +779,7 @@
           mobileMenu.classList.toggle('hidden');
         });
       }
+  
     </script>
   </body>
 </html>

@@ -26,7 +26,7 @@ window.createAuthModal = function(type) {
                     <input type="text" id="signupUsername" required 
                         class="w-full px-4 py-2 bg-terminal-bg border border-terminal-border text-terminal-text focus:border-terminal-cyan focus:outline-none mt-2">
                 </div>` : ''}
-                <div class="mb-4">
+                <div class="mb-1">
                     <div class="terminal-prompt">Email:</div>
                     <input type="email" id="${type}Email" required 
                         class="w-full px-4 py-2 bg-terminal-bg border border-terminal-border text-terminal-text focus:border-terminal-cyan focus:outline-none mt-2">
@@ -47,9 +47,6 @@ window.createAuthModal = function(type) {
                     }
                 </div>
             </form>
-            <div class="mt-4 terminal-cursor"></div>
-            </div>
-            <button class="mt-4 text-gray-400 hover:text-white" onclick="closeAuthModal()">Close</button>
         </div>
     </div>
     `;
@@ -201,15 +198,12 @@ function updateUIForLoggedInUser(userData) {
             </button>
             <div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 bg-gray-800 rounded-xl shadow-xl border border-gray-700 overflow-hidden">
                 <a href="#dashboard" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
-                    <span class="mr-2">📊</span>
                     Dashboard
                 </a>
                 <a href="#settings" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
-                    <span class="mr-2">⚙️</span>
                     Settings
                 </a>
                 <button onclick="handleLogout()" class="w-full flex items-center px-4 py-2 text-red-400 hover:bg-gray-700">
-                    <span class="mr-2">🚪</span>
                     Logout
                 </button>
             </div>
